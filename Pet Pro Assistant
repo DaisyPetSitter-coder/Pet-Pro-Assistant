@@ -1,0 +1,247 @@
+export default function PetSittingApp() {
+  const sitters = [
+    {
+      name: 'Emily Carter',
+      specialty: 'Dog Walking & Overnight Care',
+      rating: '4.9',
+      price: '$35/day',
+      image:
+        'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop'
+    },
+    {
+      name: 'Marcus Lee',
+      specialty: 'Cat Sitting & Feeding',
+      rating: '4.8',
+      price: '$28/day',
+      image:
+        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop'
+    },
+    {
+      name: 'Sophia Green',
+      specialty: 'Pet Boarding & Playtime',
+      rating: '5.0',
+      price: '$42/day',
+      image:
+        'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-100 text-slate-900">
+      {/* HEADER */}
+      <header className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">PawPal</h1>
+            <p className="text-sm text-slate-500">
+              Trusted Pet Sitting Marketplace
+            </p>
+          </div>
+
+          <nav className="hidden md:flex gap-6 text-sm font-medium">
+            <a href="#services" className="hover:text-slate-700">
+              Services
+            </a>
+            <a href="#sitters" className="hover:text-slate-700">
+              Sitters
+            </a>
+            <a href="#contact" className="hover:text-slate-700">
+              Contact
+            </a>
+          </nav>
+
+          <button className="bg-slate-900 text-white px-5 py-2 rounded-2xl shadow hover:opacity-90 transition">
+            Book Now
+          </button>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span className="bg-white shadow px-4 py-2 rounded-full text-sm font-medium">
+            Safe • Reliable • Loving Care
+          </span>
+
+          <h2 className="text-5xl font-extrabold leading-tight mt-6">
+            Find caring pet sitters near you.
+          </h2>
+
+          <p className="mt-6 text-lg text-slate-600 max-w-xl">
+            Book trusted pet sitters for walks, overnight stays, feeding,
+            and playtime. Your furry friends deserve the best care.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <input
+              placeholder="Search by city or service"
+              className="flex-1 px-5 py-4 rounded-2xl border border-slate-300 bg-white shadow-sm focus:outline-none"
+            />
+
+            <button className="bg-slate-900 text-white px-6 py-4 rounded-2xl font-semibold shadow-lg hover:scale-105 transition">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1400&auto=format&fit=crop"
+            alt="Pets"
+            className="rounded-3xl shadow-2xl w-full h-[450px] object-cover"
+          />
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section
+        id="services"
+        className="max-w-7xl mx-auto px-6 py-12"
+      >
+        <div className="text-center mb-12">
+          <h3 className="text-4xl font-bold">Our Services</h3>
+          <p className="text-slate-600 mt-3">
+            Everything your pets need while you're away.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'Dog Walking',
+              desc:
+                'Daily walks, exercise, and outdoor fun for active pets.'
+            },
+            {
+              title: 'Overnight Sitting',
+              desc:
+                'Comfortable overnight care in a loving environment.'
+            },
+            {
+              title: 'Pet Boarding',
+              desc:
+                'Safe boarding services with supervised playtime.'
+            }
+          ].map((service) => (
+            <div
+              key={service.title}
+              className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl transition"
+            >
+              <div className="w-14 h-14 bg-slate-900 rounded-2xl mb-6" />
+
+              <h4 className="text-2xl font-semibold">
+                {service.title}
+              </h4>
+
+              <p className="mt-4 text-slate-600">
+                {service.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SITTERS */}
+      <section id="sitters" className="bg-white py-16 mt-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <h3 className="text-4xl font-bold">
+                Top Rated Sitters
+              </h3>
+
+              <p className="text-slate-600 mt-2">
+                Browse experienced pet care professionals.
+              </p>
+            </div>
+
+            <button className="hidden md:block border border-slate-300 px-5 py-3 rounded-2xl hover:bg-slate-100 transition">
+              View All
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {sitters.map((sitter) => (
+              <div
+                key={sitter.name}
+                className="rounded-3xl overflow-hidden shadow-lg bg-slate-50 hover:-translate-y-1 transition"
+              >
+                <img
+                  src={sitter.image}
+                  alt={sitter.name}
+                  className="h-64 w-full object-cover"
+                />
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-2xl font-semibold">
+                      {sitter.name}
+                    </h4>
+
+                    <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
+                      ⭐ {sitter.rating}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-slate-600">
+                    {sitter.specialty}
+                  </p>
+
+                  <div className="mt-6 flex items-center justify-between">
+                    <span className="text-xl font-bold">
+                      {sitter.price}
+                    </span>
+
+                    <button className="bg-slate-900 text-white px-4 py-2 rounded-xl hover:opacity-90">
+                      Book
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
+        <div className="bg-slate-900 rounded-[32px] p-10 text-white text-center shadow-2xl">
+          <h3 className="text-4xl font-bold">
+            Ready to book trusted pet care?
+          </h3>
+
+          <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
+            Join thousands of happy pet owners using PawPal to connect
+            with caring sitters.
+          </p>
+
+          <button className="mt-8 bg-white text-slate-900 px-8 py-4 rounded-2xl font-semibold shadow-lg hover:scale-105 transition">
+            Get Started
+          </button>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer
+        id="contact"
+        className="bg-white border-t border-slate-200 py-8"
+      >
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 className="font-bold text-xl">PawPal</h4>
+
+            <p className="text-sm text-slate-500">
+              Connecting pets with loving sitters.
+            </p>
+          </div>
+
+          <div className="flex gap-6 text-sm text-slate-600">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
